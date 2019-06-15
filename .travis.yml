@@ -5,5 +5,4 @@ addons:
     packages:
       - cmake-data
       - cmake
-compiler: 
-      - g++
+compiler: clang 
