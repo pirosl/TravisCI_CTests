@@ -1,3 +1,4 @@
+install: make get-deps
 addons:
   apt:
     sources:
