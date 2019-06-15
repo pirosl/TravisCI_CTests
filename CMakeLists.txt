@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.0)
 project (sqrt)
 add_executable(sqrt sqrt.cpp)
 
