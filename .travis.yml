@@ -5,7 +5,7 @@ compiler:
   - clang
 
 install:
-  - sudo apt-get install libgtest-dev
+  - sudo apt-get install libgtest-dev cmake
 
 before_script:
   - cd /usr/src/gtest
