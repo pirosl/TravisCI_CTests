@@ -8,6 +8,11 @@ install:
   - sudo apt-get install libgtest-dev
 
 before_script:
+  - cd /usr/src/gtest
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - sudo cp *.a /usr/lib
+  - cd $TRAVIS_BUILD_DIR
   - mkdir build
   - cd build
   - cmake ..
