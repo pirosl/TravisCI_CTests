@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.0)
 project (sqrt)
-add_executable(sqrt sqrt.cpp)
 
-include (CTest)
+# Locate GTest
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
 
-add_test(sqrtTestRun sqrt 25)
-add_test(sqrtTestComp sqrt 25)
-set_tests_properties(sqrtTestComp PROPERTIES PASS_REGULAR_EXPRESSION "25 is 5")
+add_executable(sqrt sqrt.cpp squareRoot.cpp)
+add_executable(sqrt_test sqrt_test.cpp)
+
+target_link_libraries(sqrt_test ${GTEST_LIBRARIES} pthread)

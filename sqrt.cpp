@@ -1,8 +1,10 @@
+
 #include <iostream>
-#include <cmath>
 #include <sstream>
+#include "squareRoot.h"
 
 using namespace std;
+
 
 int main(int argc, char* argv[])
 {
@@ -22,7 +24,7 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-	cout << "Sqrt of " << number << " is " << sqrt(number) << endl;
+	cout << "Sqrt of " << number << " is " << squareRoot(number) << endl;
 
 	return 0;
 }
