@@ -4,7 +4,7 @@ compiler:
   - gcc
 
 install:
-  - sudo apt-get install libgtest-dev cmake
+  - sudo apt-get install libgtest-dev cmake lcov
 
 before_script:
   - cd /usr/src/gtest
@@ -14,7 +14,14 @@ before_script:
   - cd $TRAVIS_BUILD_DIR
   - mkdir build
   - cd build
-  - cmake ..
+  - cmake -D CMAKE_CXX_FLAGS="-g --coverage" ..
 
 script: make test 
 
+after_success:
+# Create lcov report
+- lcov --capture --directory . --output-file coverage.info
+- lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter system-files
+- lcov --list coverage.info # debug info
+# Uploading report to CodeCov
+- bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports"
