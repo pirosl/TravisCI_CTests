@@ -16,5 +16,5 @@ before_script:
   - cd build
   - cmake ..
 
-script: make && ./sqrt_test && ./dailycodingproblem1_test
+script: make test 
 
